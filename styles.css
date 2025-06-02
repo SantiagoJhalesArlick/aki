@@ -1,4 +1,4 @@
-/* --- YOUR EXISTING CSS --- */
+/* --- YOUR EXISTING CSS (with the new adjustments) --- */
 
 /* Base Variables (for easy theme switching) */
 :root {
@@ -11,7 +11,30 @@
     --box-shadow-dark: 0 4px 15px rgba(0,0,0,0.15);
     --border-color: #eee;
 }
+/* Styles for the second proverb (tagalog) and explanation */
+#wisdomModal #modalTagalogProverb,
+#wisdomModal #modalExplanation {
+    
+    text-transform: none;
+    font-weight: normal; /* Keep this bold */
+    font-style: normal;
+    font-size: 1.1em; /* Adjust as needed */
+    color: white;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
 
+/* Specific styles for the first proverb (proverb) */
+#wisdomModal #modalProverb {
+   
+    text-transform: none;
+    font-weight: normal; /* <--- CHANGED TO NORMAL (not bold) for this specific element */
+    font-style: normal;
+    font-size: 1.1em; /* Adjust as needed */
+    color: white;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
 /* Dark Mode Variables */
 body.dark-mode {
     --text-color: #f0f0f0;
@@ -25,7 +48,7 @@ body.dark-mode {
 /* Basic Reset & Body Styles */
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -57,10 +80,10 @@ nav .logo {
     font-size: 1.8rem;
     font-weight: bold;
     color: var(--dark-purple);
-    /* Add this if you want the logo to be centered on mobile when nav items stack */
     text-align: center;
-    width: 100%; /* Take full width to center it */
-    margin-bottom: 10px; /* Space below logo on mobile */
+    width: 100%;
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
 }
 
 
@@ -69,10 +92,9 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    align-items: center; /* Align toggle with links */
-    /* Add this for mobile alignment */
-    width: 100%; /* Take full width for centering */
-    justify-content: center; /* Center items within the ul */
+    align-items: center;
+    width: 100%;
+    justify-content: center;
 }
 
 nav ul li {
@@ -84,6 +106,7 @@ nav ul li a {
     color: var(--text-color);
     font-weight: 500;
     transition: color 0.3s ease;
+    font-family: 'Arial', sans-serif;
 }
 
 nav ul li a:hover {
@@ -189,6 +212,7 @@ body.dark-mode input:checked + .slider:before {
     font-size: 3.5rem;
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-family: 'Arial', sans-serif;
 }
 
 #hero p {
@@ -196,6 +220,7 @@ body.dark-mode input:checked + .slider:before {
     max-width: 600px;
     margin: 0 auto 30px;
     opacity: 0.9;
+    font-family: 'Arial', sans-serif;
 }
 
 .social-icons a {
@@ -204,6 +229,7 @@ body.dark-mode input:checked + .slider:before {
     margin: 0 15px;
     transition: transform 0.3s ease;
     text-decoration: none;
+    font-family: 'Arial', sans-serif;
 }
 
 .social-icons a:hover {
@@ -228,6 +254,7 @@ section h2 {
     margin-bottom: 50px;
     color: var(--dark-purple);
     position: relative;
+    font-family: 'Arial', sans-serif;
 }
 
 section h2::after {
@@ -255,6 +282,7 @@ section h2::after {
     flex: 2;
     min-width: 300px;
     text-align: justify;
+    font-family: 'Arial', sans-serif;
 }
 
 #about .about-image {
@@ -301,6 +329,29 @@ section h2::after {
     box-shadow: var(--box-shadow-light);
 }
 
+/* Styling for day boxes - Applying 'Iloveyou' style to ALL paragraphs within */
+#message .day-box {
+    font-family: 'Arial', sans-serif; /* Ensures Arial for the box itself */
+}
+
+#message .day-box p {
+    font-family: 'Arial', sans-serif; /* Redundant but good for specific override */
+    font-style: italic; /* Makes it italic like "Iloveyou" */
+    font-weight: normal; /* Ensures it's not bold */
+    color: var(--dark-purple); /* Using the dark purple from your variables for the text color */
+    /* If you want it exactly white like the modal background, use color: white;
+       But it's in a card-background so dark purple or text-color might be better. */
+    text-decoration: none; /* Ensures no underline */
+    margin: 0; /* Remove default paragraph margins to make spacing tight if needed */
+}
+
+/* Remove the previous rule for skyblue, as it's overridden by the above more general rule */
+/* If you still want the first paragraph to be skyblue, let me know, and we can make a specific rule for that. */
+/* #message .day-box p:first-of-type {
+    color: skyblue;
+} */
+
+
 /* Add this new rule for disabled days */
 #message .day-box.disabled {
     background-color: #ccc;
@@ -326,7 +377,7 @@ body.dark-mode #message .day-box:hover {
 }
 
 
-/* Modal Styles */
+/* Modal Styles (kept as is, but added font-family to elements with font-size for consistency) */
 .modal {
     display: none;
     position: fixed;
@@ -355,6 +406,7 @@ body.dark-mode #message .day-box:hover {
     position: relative;
     animation: fadeIn 0.3s ease-out;
     text-align: center;
+    font-family: 'Arial', sans-serif;
 }
 
 @keyframes fadeIn {
@@ -376,23 +428,38 @@ body.dark-mode #message .day-box:hover {
 .modal-content h3 {
     font-size: 1.8rem;
     margin-bottom: 15px;
+    font-family: 'Arial', sans-serif;
 }
 
 .modal-content p {
-    font-size: 1.1rem;
+    font-size: 1.1rem; /* This is the general paragraph size in the modal */
     line-height: 1.8;
     margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
 }
 
 .modal-content .proverb {
     font-style: italic;
     margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
 }
 
 .modal-content .tagalog-proverb {
     font-weight: bold;
     margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
 }
+
+/* The 'Iloveyou' line itself would likely be a p tag. If it had a specific class,
+   e.g., <p class="iloveyou-text">Iloveyou</p>, you might style it like this:
+   .iloveyou-text {
+       font-family: 'Arial', sans-serif;
+       font-style: italic;
+       font-weight: normal;
+       color: white;
+       text-decoration: none;
+   }
+*/
 
 .close-button {
     color: #aaa;
@@ -403,6 +470,7 @@ body.dark-mode #message .day-box:hover {
     font-weight: bold;
     cursor: pointer;
     transition: color 0.3s ease;
+    font-family: 'Arial', sans-serif;
 }
 
 .close-button:hover,
@@ -420,6 +488,7 @@ footer {
     color: #eee;
     font-size: 0.9rem;
     margin-top: 40px;
+    font-family: 'Arial', sans-serif;
 }
 
 footer .footer-links a {
@@ -427,6 +496,7 @@ footer .footer-links a {
     text-decoration: none;
     margin: 0 10px;
     transition: color 0.3s ease;
+    font-family: 'Arial', sans-serif;
 }
 
 footer .footer-links a:hover {
@@ -436,68 +506,67 @@ footer .footer-links a:hover {
 /* --- START: Responsive Adjustments for Navigation (Mobile First) --- */
 @media (max-width: 768px) {
     nav .container {
-        /* Change from column to row for nav items */
         flex-direction: row;
-        justify-content: space-between; /* Space out logo, nav links, and toggle */
-        align-items: center; /* Vertically center everything */
-        padding: 0 15px; /* Adjust padding for smaller screens */
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px;
     }
 
     nav .logo {
-        text-align: left; /* Align logo to the left */
-        width: auto; /* Allow logo to take natural width */
-        margin-bottom: 0; /* Remove bottom margin */
-        font-size: 1.5rem; /* Slightly smaller logo on mobile */
+        text-align: left;
+        width: auto;
+        margin-bottom: 0;
+        font-size: 1.5rem;
+        font-family: 'Arial', sans-serif;
     }
 
     nav ul {
-        margin-top: 0; /* Remove top margin */
-        flex-wrap: nowrap; /* Prevent wrapping for links */
-        justify-content: center; /* Center the links */
-        /* Use flex-grow to push the toggle to the right */
-        flex-grow: 1; /* Allow ul to grow and push items apart */
-        /* To create space between links and toggle */
-        margin-right: 15px; /* Adjust as needed */
-        margin-left: auto; /* Push ul to the right, creating space for logo */
+        margin-top: 0;
+        flex-wrap: nowrap;
+        justify-content: center;
+        flex-grow: 1;
+        margin-right: 15px;
+        margin-left: auto;
     }
 
     nav ul li {
-        margin-left: 20px; /* Adjust spacing between links */
-        margin-bottom: 0; /* Remove bottom margin */
+        margin-left: 20px;
+        margin-bottom: 0;
     }
 
-    /* Adjust the theme switch wrapper to pull it to the right */
     .theme-switch-wrapper {
-        margin-left: 0; /* Remove default left margin */
-        flex-shrink: 0; /* Prevent it from shrinking */
+        margin-left: 0;
+        flex-shrink: 0;
     }
-
 
     /* Other existing responsive adjustments */
     #hero h1 {
         font-size: 2.5rem;
+        font-family: 'Arial', sans-serif;
     }
     #hero p {
         font-size: 1rem;
+        font-family: 'Arial', sans-serif;
     }
     section {
         padding: 60px 15px;
     }
     section h2 {
         font-size: 2rem;
+        font-family: 'Arial', sans-serif;
     }
     #about .about-content {
-        flex-direction: column; /* Stack content vertically */
+        flex-direction: column;
     }
 
     /* About image on smaller screens */
     #about .about-image {
-        min-width: unset; /* Remove min-width */
-        margin-top: 20px; /* Space between text and image */
+        min-width: unset;
+        margin-top: 20px;
     }
     #about .about-image img {
-        width: 180px; /* Adjust size for mobile */
-        height: 180px; /* Adjust size for mobile */
+        width: 180px;
+        height: 180px;
     }
 
     #message .calendar-grid {
@@ -507,10 +576,18 @@ footer .footer-links a:hover {
     #message .day-box {
         font-size: 1.2rem;
         padding: 15px 5px;
+        font-family: 'Arial', sans-serif;
+    }
+    #message .day-box p { /* Ensure mobile messages also get the style */
+        font-style: italic;
+        font-weight: normal;
+        color: var(--dark-purple);
+        text-decoration: none;
     }
     .modal-content {
         width: 95%;
         padding: 20px;
+        font-family: 'Arial', sans-serif;
     }
     .modal-content .modal-image {
         width: 100px;
@@ -529,13 +606,13 @@ footer .footer-links a:hover {
     }
     nav ul {
         width: auto;
-        justify-content: flex-start; /* Or space-between, depending on desktop nav design */
+        justify-content: flex-start;
         flex-grow: 0;
         margin-right: 0;
-        margin-left: 0; /* Reset this to its original desktop value if needed */
+        margin-left: 0;
     }
     .theme-switch-wrapper {
-        margin-left: 30px; /* Restore original desktop margin */
+        margin-left: 30px;
     }
 
     /* Keep the image grid or carousel for desktop */
