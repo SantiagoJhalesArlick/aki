@@ -1,24 +1,34 @@
 // Dark mode toggle script
-const checkbox = document.getElementById('checkbox');
+const darkModeToggle = document.getElementById('darkModeToggle'); // This now correctly targets your heart emoji span
 const body = document.body;
-const currentTheme = localStorage.getItem('theme');
 
-if (currentTheme) {
-    body.classList.add(currentTheme);
-    if (currentTheme === 'dark-mode') {
-        checkbox.checked = true;
+// Function to set the theme based on localStorage or default
+function setTheme() {
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark-mode') { // Use 'dark-mode' to match your provided script
+        body.classList.add('dark-mode');
+        darkModeToggle.textContent = '💜'; // Dark mode: purple heart
+    } else {
+        body.classList.remove('dark-mode');
+        darkModeToggle.textContent = '🤍'; // Light mode: white heart (or any other contrasting emoji)
     }
 }
 
-checkbox.addEventListener('change', () => {
-    if (checkbox.checked) {
-        body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark-mode');
-    } else {
+// Apply theme on page load
+setTheme();
+
+darkModeToggle.addEventListener('click', () => {
+    if (body.classList.contains('dark-mode')) {
         body.classList.remove('dark-mode');
-        localStorage.setItem('theme', 'light-mode');
+        localStorage.setItem('theme', 'light-mode'); // Store 'light-mode'
+        darkModeToggle.textContent = '🤍'; // Switch to light: white heart
+    } else {
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark-mode'); // Store 'dark-mode'
+        darkModeToggle.textContent = '💜'; // Switch to dark: purple heart
     }
 });
+
 
 // New JavaScript for Message Section (Daily Wisdom Modal)
 const calendarGrid = document.querySelector('#message .calendar-grid');
@@ -48,7 +58,7 @@ const messageContent = {
         explanation: 'This highlights the impact of a child\'s actions on their parents, linking wisdom to happiness and foolishness to sorrow.'
     },
     3: {
-        image: 'us2.jpg',
+        image: 'us.jpg',
         proverb: 'Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight. (Proverbs 3:5-6)',
         tagalogProverb: 'Magtiwala ka sa Panginoon nang buong puso mo, at huwag kang manalig sa sarili mong pagkaunawa; sa lahat ng iyong lakad ay iyong kilalanin siya, at itutuwid niya ang iyong mga landas.',
         explanation: 'This encourages complete reliance on God\'s guidance rather than solely on human intellect.'
@@ -250,7 +260,7 @@ calendarGrid.addEventListener('click', (event) => {
 
         // Check if the clicked day is the current day or if it's disabled
         if (day !== currentDay) {
-            alert('Kung ano date now yun lang hoy,  ' + currentDay + '.');
+            alert('Kung ano date now yun lang hoy, ' + currentDay + '.');
             return; // Exit the function if not the current day
         }
 
@@ -275,9 +285,6 @@ calendarGrid.addEventListener('click', (event) => {
 closeButton.addEventListener('click', () => {
     wisdomModal.style.display = 'none';
 });
-
-
-
 
 // Initialize the calendar grid when the page loads
 generateCalendar();
