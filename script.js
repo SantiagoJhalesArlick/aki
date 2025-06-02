@@ -59,9 +59,9 @@ const messageContent = {
     },
     3: {
         image: 'us.jpg',
-        proverb: 'Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight. (Proverbs 3:5-6)',
-        tagalogProverb: 'Magtiwala ka sa Panginoon nang buong puso mo, at huwag kang manalig sa sarili mong pagkaunawa; sa lahat ng iyong lakad ay iyong kilalanin siya, at itutuwid niya ang iyong mga landas.',
-        explanation: 'This encourages complete reliance on God\'s guidance rather than solely on human intellect.'
+        proverb: 'Youre a truly special person, Aki😘. Your kindness, humor, and strong faith shine brightly. Its clear why youre such a good leader😎🤛. Being around you brings so much joy. Youre a wonderful friend, and I feel lucky to know you',
+        tagalogProverb: 'Babe😍, you are truly a woman to be praised. The Bible says, "Charm is deceptive, and beauty is fleeting; but a woman who fears the Lord is to be praised" (Proverbs 31:30, KJV). This verse reminds us that your true beauty comes from your heart and your love for God. Your kindness, your humor, and your strong faith make you shine in a way that lasts forever. Its truly a blessing to see Gods light in you.',
+        explanation: 'Iloveyou🥰'
     },
     4: {
         image: 'placeholder4.jpg',
