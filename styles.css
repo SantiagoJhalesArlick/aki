@@ -1,449 +1,575 @@
- /* Base Variables (for easy theme switching) */
-        :root {
-            --primary-purple: #C3A9FF; /* Light Purple */
-            --dark-purple: #8A4EF8;    /* A slightly darker purple for accents */
-            --text-color: #333;
-            --background-color: #f4f7f6;
-            --card-background: #ffffff;
-            --box-shadow-light: 0 2px 10px rgba(0,0,0,0.08);
-            --box-shadow-dark: 0 4px 15px rgba(0,0,0,0.15);
-            --border-color: #eee;
-        }
+/* --- YOUR EXISTING CSS --- */
 
-        /* Dark Mode Variables */
-        body.dark-mode {
-            --text-color: #f0f0f0;
-            --background-color: #212121; /* Dark background */
-            --card-background: #2f2f2f;
-            --box-shadow-light: 0 2px 10px rgba(0,0,0,0.3);
-            --box-shadow-dark: 0 4px 15px rgba(0,0,0,0.4);
-            --border-color: #444;
-        }
+/* Base Variables (for easy theme switching) */
+:root {
+    --primary-purple: #C3A9FF; /* Light Purple */
+    --dark-purple: #8A4EF8;    /* A slightly darker purple for accents */
+    --text-color: #333;
+    --background-color: #f4f7f6;
+    --card-background: #ffffff;
+    --box-shadow-light: 0 2px 10px rgba(0,0,0,0.08);
+    --box-shadow-dark: 0 4px 15px rgba(0,0,0,0.15);
+    --border-color: #eee;
+}
 
-        /* Basic Reset & Body Styles */
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
+/* Dark Mode Variables */
+body.dark-mode {
+    --text-color: #f0f0f0;
+    --background-color: #212121; /* Dark background */
+    --card-background: #2f2f2f;
+    --box-shadow-light: 0 2px 10px rgba(0,0,0,0.3);
+    --box-shadow-dark: 0 4px 15px rgba(0,0,0,0.4);
+    --border-color: #444;
+}
 
-        /* Navigation Bar */
-        nav {
-            background-color: var(--card-background);
-            padding: 1rem 0;
-            box-shadow: var(--box-shadow-light);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
+/* Basic Reset & Body Styles */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+/* Navigation Bar */
+nav {
+    background-color: var(--card-background);
+    padding: 1rem 0;
+    box-shadow: var(--box-shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-        nav .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--dark-purple);
-        }
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center; /* Align toggle with links */
-        }
+nav .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--dark-purple);
+    /* Add this if you want the logo to be centered on mobile when nav items stack */
+    text-align: center;
+    width: 100%; /* Take full width to center it */
+    margin-bottom: 10px; /* Space below logo on mobile */
+}
 
-        nav ul li {
-            margin-left: 30px;
-        }
 
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Align toggle with links */
+    /* Add this for mobile alignment */
+    width: 100%; /* Take full width for centering */
+    justify-content: center; /* Center items within the ul */
+}
 
-        nav ul li a:hover {
-            color: var(--primary-purple);
-        }
+nav ul li {
+    margin-left: 30px;
+}
 
-        /* Dark Mode Toggle Switch */
-        .theme-switch-wrapper {
-            display: flex;
-            align-items: center;
-            margin-left: 30px;
-        }
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
 
-        .theme-switch-wrapper .fa-sun,
-        .theme-switch-wrapper .fa-moon {
-            font-size: 1.2rem;
-            color: var(--text-color);
-            margin: 0 5px;
-        }
+nav ul li a:hover {
+    color: var(--primary-purple);
+}
 
-        .theme-switch {
-            display: inline-block;
-            height: 24px;
-            position: relative;
-            width: 48px;
-        }
+/* Minimalist Dark Mode Toggle Switch */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
 
-        .theme-switch input {
-            display: none;
-        }
+.theme-switch-wrapper .fa-sun,
+.theme-switch-wrapper .fa-moon {
+    display: none;
+}
 
-        .slider {
-            background-color: #ccc;
-            bottom: 0;
-            cursor: pointer;
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            transition: .4s;
-            border-radius: 34px;
-        }
+.theme-switch {
+    display: inline-block;
+    height: 28px;
+    position: relative;
+    width: 50px;
+}
 
-        .slider:before {
-            background-color: #fff;
-            bottom: 4px;
-            content: "";
-            height: 16px;
-            left: 4px;
-            position: absolute;
-            transition: .4s;
-            width: 16px;
-            border-radius: 50%;
-        }
+.theme-switch input {
+    display: none;
+}
 
-        input:checked + .slider {
-            background-color: var(--dark-purple);
-        }
+.slider {
+    background-color: var(--border-color);
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.3s;
+    border-radius: 34px;
+}
 
-        input:checked + .slider:before {
-            transform: translateX(24px);
-        }
+.slider:before {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    bottom: 3px;
+    content: "";
+    height: 22px;
+    left: 3px;
+    position: absolute;
+    transition: 0.3s;
+    width: 22px;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
 
-        /* Hero Section */
-        #hero {
-            background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple)); /* Gradient background */
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 70vh; /* Make it take up more vertical space */
-        }
+input:checked + .slider {
+    background-color: var(--dark-purple);
+}
 
-        #hero .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid rgba(255,255,255,0.8);
-            box-shadow: var(--box-shadow-dark);
-            margin-bottom: 20px;
-        }
+input:checked + .slider:before {
+    transform: translateX(22px);
+    background-color: white;
+    border-color: var(--dark-purple);
+}
 
-        #hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+body.dark-mode .slider {
+    background-color: #555;
+}
 
-        #hero p {
-            font-size: 1.3rem;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            opacity: 0.9;
-        }
+body.dark-mode input:checked + .slider {
+    background-color: var(--primary-purple);
+}
 
-        .social-icons a {
-            color: white;
-            font-size: 1.8rem;
-            margin: 0 15px;
-            transition: transform 0.3s ease;
-            text-decoration: none; /* Remove underline */
-        }
+body.dark-mode input:checked + .slider:before {
+    background-color: white;
+    border-color: var(--primary-purple);
+}
 
-        .social-icons a:hover {
-            transform: translateY(-5px);
-        }
+/* Hero Section */
+#hero {
+    background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+}
 
-        /* General Section Styling */
-        section {
-            padding: 80px 20px;
-            max-width: 960px;
-            margin: 0 auto;
-            background-color: var(--card-background);
-            box-shadow: var(--box-shadow-light);
-            margin-bottom: 40px;
-            border-radius: 8px;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
+#hero .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid rgba(255,255,255,0.8);
+    box-shadow: var(--box-shadow-dark);
+    margin-bottom: 20px;
+}
 
-        section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: var(--dark-purple);
-            position: relative;
-        }
+#hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
 
-        section h2::after {
-            content: '';
-            width: 80px;
-            height: 4px;
-            background-color: var(--primary-purple);
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
+#hero p {
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    opacity: 0.9;
+}
 
-        /* About Section Specifics */
-        #about .about-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-            justify-content: center;
-        }
+.social-icons a {
+    color: white;
+    font-size: 1.8rem;
+    margin: 0 15px;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+}
 
-        #about .about-text {
-            flex: 2;
-            min-width: 300px;
-            text-align: justify;
-        }
+.social-icons a:hover {
+    transform: translateY(-5px);
+}
 
-        #about .about-image {
-            flex: 1;
-            min-width: 200px;
-            text-align: center;
-        }
+/* General Section Styling */
+section {
+    padding: 80px 20px;
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: var(--card-background);
+    box-shadow: var(--box-shadow-light);
+    margin-bottom: 40px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-        #about .about-image img {
-            width: 250px;
-            height: 250px;
-            border-radius: 8px;
-            object-fit: cover;
-            box-shadow: var(--box-shadow-light);
-        }
+section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--dark-purple);
+    position: relative;
+}
 
-        /* Message Section (New/Replaced Section) */
-        #message {
-            text-align: center;
-        }
+section h2::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-purple);
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
 
-        #message .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Adjusted for more squares */
-            gap: 15px;
-            max-width: 700px;
-            margin: 50px auto 0;
-            padding: 20px;
-            background-color: var(--background-color);
-            border-radius: 8px;
-            box-shadow: var(--box-shadow-light);
-        }
+/* About Section Specifics */
+#about .about-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#about .about-text {
+    flex: 2;
+    min-width: 300px;
+    text-align: justify;
+}
+
+#about .about-image {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+#about .about-image img {
+    width: 250px;
+    height: 250px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: var(--box-shadow-light);
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+#about .about-image img:hover {
+    transform: scale(1.03);
+}
+
+#about .about-image a {
+    display: block;
+}
+
+
+/* Message Section (New/Replaced Section) */
+#message {
+    text-align: center;
+}
+
+#message .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 15px;
+    max-width: 700px;
+    margin: 50px auto 0;
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow-light);
+}
 
 /* Add this new rule for disabled days */
 #message .day-box.disabled {
-    background-color: #ccc; /* Lighter grey for disabled days */
+    background-color: #ccc;
     color: #888;
     cursor: not-allowed;
     opacity: 0.6;
     box-shadow: none;
-    transform: none; /* Remove hover effect */
+    transform: none;
 }
 
 #message .day-box.disabled:hover {
-    background-color: #ccc; /* Ensure no change on hover for disabled */
+    background-color: #ccc;
     transform: none;
 }
 
 /* For dark mode disabled days */
 body.dark-mode #message .day-box.disabled {
-    background-color: #444; /* Darker grey for disabled in dark mode */
+    background-color: #444;
     color: #777;
 }
-        body.dark-mode #message .day-box:hover {
-            background-color: var(--primary-purple); /* Light purple hover in dark mode */
-        }
+body.dark-mode #message .day-box:hover {
+    background-color: var(--primary-purple);
+}
 
 
-        /* Modal Styles */
-        .modal {
-            display: none; /* Initially hidden */
-            position: fixed; /* Stay in place */
-            z-index: 1001; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            padding: 20px;
-            box-sizing: border-box;
-        }
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
 
-        .modal-content {
-            background-color: var(--dark-purple); /* Use dark purple for modal background */
-            color: white;
-            margin: auto;
-            padding: 30px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: var(--box-shadow-dark);
-            position: relative;
-            animation: fadeIn 0.3s ease-out;
-            text-align: center;
-        }
+.modal-content {
+    background-color: var(--dark-purple);
+    color: white;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: var(--box-shadow-dark);
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+    text-align: center;
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
 
-        .modal-content .modal-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 10px; /* Square with rounded corners */
-            object-fit: cover;
-            border: 3px solid rgba(255,255,255,0.8);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            display: block; /* Ensures the image behaves as a block element */
-            margin: 0 auto 20px; /* Top/Bottom margin is 20px, Left/Right is auto to center */
-        }
+.modal-content .modal-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 3px solid rgba(255,255,255,0.8);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    display: block;
+    margin: 0 auto 20px;
+}
 
-        .modal-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
+.modal-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
 
-        .modal-content p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
+.modal-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
 
-        .modal-content .proverb {
-            font-style: italic;
-            margin-bottom: 10px;
-        }
+.modal-content .proverb {
+    font-style: italic;
+    margin-bottom: 10px;
+}
 
-        .modal-content .tagalog-proverb {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
+.modal-content .tagalog-proverb {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
-        .close-button {
-            color: #aaa;
-            position: absolute;
-            top: 15px;
-            right: 25px;
-            font-size: 30px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
 
-        .close-button:hover,
-        .close-button:focus {
-            color: white;
-            text-decoration: none;
-            cursor: pointer;
-        }
+.close-button:hover,
+.close-button:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            background-color: var(--dark-purple);
-            color: #eee;
-            font-size: 0.9rem;
-            margin-top: 40px;
-        }
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--dark-purple);
+    color: #eee;
+    font-size: 0.9rem;
+    margin-top: 40px;
+}
 
-        footer .footer-links a {
-            color: #eee;
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
+footer .footer-links a {
+    color: #eee;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
 
-        footer .footer-links a:hover {
-            color: var(--primary-purple);
-        }
+footer .footer-links a:hover {
+    color: var(--primary-purple);
+}
 
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            nav .container {
-                flex-direction: column;
-            }
-            nav ul {
-                margin-top: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            nav ul li {
-                margin: 0 15px 10px;
-            }
-            #hero h1 {
-                font-size: 2.5rem;
-            }
-            #hero p {
-                font-size: 1rem;
-            }
-            section {
-                padding: 60px 15px;
-            }
-            section h2 {
-                font-size: 2rem;
-            }
-            #about .about-content,
-            #message .calendar-grid { /* Adjusted for new section */
-                flex-direction: column;
-                text-align: center;
-            }
-            #about .about-image img {
-                margin-bottom: 20px;
-            }
-            #message .calendar-grid {
-                grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-                gap: 10px;
-            }
-            #message .day-box {
-                font-size: 1.2rem;
-                padding: 15px 5px;
-            }
-            .modal-content {
-                width: 95%;
-                padding: 20px;
-            }
-            .modal-content .modal-image {
-                width: 100px;
-                height: 100px;
-            }
-            
-            
-        }
+/* --- START: Responsive Adjustments for Navigation (Mobile First) --- */
+@media (max-width: 768px) {
+    nav .container {
+        /* Change from column to row for nav items */
+        flex-direction: row;
+        justify-content: space-between; /* Space out logo, nav links, and toggle */
+        align-items: center; /* Vertically center everything */
+        padding: 0 15px; /* Adjust padding for smaller screens */
+    }
+
+    nav .logo {
+        text-align: left; /* Align logo to the left */
+        width: auto; /* Allow logo to take natural width */
+        margin-bottom: 0; /* Remove bottom margin */
+        font-size: 1.5rem; /* Slightly smaller logo on mobile */
+    }
+
+    nav ul {
+        margin-top: 0; /* Remove top margin */
+        flex-wrap: nowrap; /* Prevent wrapping for links */
+        justify-content: center; /* Center the links */
+        /* Use flex-grow to push the toggle to the right */
+        flex-grow: 1; /* Allow ul to grow and push items apart */
+        /* To create space between links and toggle */
+        margin-right: 15px; /* Adjust as needed */
+        margin-left: auto; /* Push ul to the right, creating space for logo */
+    }
+
+    nav ul li {
+        margin-left: 20px; /* Adjust spacing between links */
+        margin-bottom: 0; /* Remove bottom margin */
+    }
+
+    /* Adjust the theme switch wrapper to pull it to the right */
+    .theme-switch-wrapper {
+        margin-left: 0; /* Remove default left margin */
+        flex-shrink: 0; /* Prevent it from shrinking */
+    }
+
+
+    /* Other existing responsive adjustments */
+    #hero h1 {
+        font-size: 2.5rem;
+    }
+    #hero p {
+        font-size: 1rem;
+    }
+    section {
+        padding: 60px 15px;
+    }
+    section h2 {
+        font-size: 2rem;
+    }
+    #about .about-content {
+        flex-direction: column; /* Stack content vertically */
+    }
+
+    /* About image on smaller screens */
+    #about .about-image {
+        min-width: unset; /* Remove min-width */
+        margin-top: 20px; /* Space between text and image */
+    }
+    #about .about-image img {
+        width: 180px; /* Adjust size for mobile */
+        height: 180px; /* Adjust size for mobile */
+    }
+
+    #message .calendar-grid {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+        gap: 10px;
+    }
+    #message .day-box {
+        font-size: 1.2rem;
+        padding: 15px 5px;
+    }
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+    .modal-content .modal-image {
+        width: 100px;
+        height: 100px;
+    }
+}
+/* --- END: Responsive Adjustments for Navigation --- */
+
+/* Adjustments for larger screens (if you want a different look when not a carousel) */
+@media (min-width: 769px) {
+    /* Reset mobile specific nav styles for desktop */
+    nav .logo {
+        width: auto;
+        margin-bottom: 0;
+        text-align: left;
+    }
+    nav ul {
+        width: auto;
+        justify-content: flex-start; /* Or space-between, depending on desktop nav design */
+        flex-grow: 0;
+        margin-right: 0;
+        margin-left: 0; /* Reset this to its original desktop value if needed */
+    }
+    .theme-switch-wrapper {
+        margin-left: 30px; /* Restore original desktop margin */
+    }
+
+    /* Keep the image grid or carousel for desktop */
+    /* If you want it to be a grid on desktop, uncomment and adjust the following: */
+    /*
+    .image-carousel-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 10px;
+        background-color: var(--background-color);
+        border-radius: 8px;
+        box-shadow: var(--box-shadow-light);
+        overflow: visible;
+        scroll-snap-type: none;
+    }
+
+    .image-carousel-track {
+        display: contents;
+        overflow-x: visible;
+        scroll-snap-type: none;
+        padding-bottom: 0;
+    }
+
+    .image-carousel-track img {
+        width: 100%;
+        height: 150px;
+        margin: 0;
+        scroll-snap-align: none;
+    }
+
+    .image-carousel-track img:first-child,
+    .image-carousel-track img:last-child {
+        margin: 0;
+    }
+    */
+}
