@@ -65,9 +65,9 @@ const messageContent = {
     },
     4: {
         image: 'placeholder4.jpg',
-        proverb: 'maya',
-        tagalogProverb: '',
-        explanation: ''
+        proverb: 'Hi, first of all sorry kasi di ko nabantayan ng maayos si Pixie kung naalagaan ko lang sana siya ng maayos at pinakakawalan lagi buhay pa sana siya for now, sorry for my lack of actions through out this day June 04, 2025 our baby died.',
+        tagalogProverb: 'But dont be sad even tho its still shockwave whats happening rn, Lord plans is better maybe He give us Pixie for some reasons and learn from them, Its sad but its alr Pixie is in the good hands rn and better community.',
+        explanation: 'Thats all for today, dont forget to takecare yourself ily -jhales'
     },
     5: {
         image: 'placeholder5.jpg',
