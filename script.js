@@ -58,13 +58,13 @@ const messageContent = {
         explanation: 'This highlights the impact of a child\'s actions on their parents, linking wisdom to happiness and foolishness to sorrow.'
     },
     3: {
-        image: 'pixie.jpg',
+        image: 'us2.jpg',
         proverb: 'Youre a truly special person, Aki. Your kindness, humor, and strong faith shine brightly. Its clear why youre such a good leader. Being around you brings so much joy. Youre a wonderful friend, and I feel lucky to know you',
         tagalogProverb: 'Babe, you are truly a woman to be praised. The Bible says, "Charm is deceptive, and beauty is fleeting; but a woman who fears the Lord is to be praised" Proverbs 31:30, KJV. This verse reminds us that your true beauty comes from your heart and your love for God. Your kindness, your humor, and your strong faith make you shine in a way that lasts forever. Its truly a blessing to see Gods light in you.',
         explanation: 'Iloveyou🥰'
     },
     4: {
-        image: 'placeholder4.jpg',
+        image: 'pixie.jpg',
         proverb: 'Hi, first of all sorry kasi di ko nabantayan ng maayos si Pixie kung naalagaan ko lang sana siya ng maayos at pinakakawalan lagi buhay pa sana siya for now, sorry for my lack of actions through out this day June 04, 2025 our baby died.',
         tagalogProverb: 'But dont be sad even tho its still shockwave whats happening rn, Lord plans is better maybe He give us Pixie for some reasons and learn from them, Its sad but its alr Pixie is in the good hands rn and better community.',
         explanation: 'Thats all for today, dont forget to takecare yourself ily -jhales'
