@@ -65,9 +65,9 @@ const messageContent = {
     },
     4: {
         image: 'placeholder4.jpg',
-        proverb: 'Keep your heart with all diligence, for out of it spring the issues of life. (Proverbs 4:23)',
-        tagalogProverb: 'Ingatan mo ang iyong puso nang buong sipag; sapagka\'t mula roon nanggagaling ang mga bukal ng buhay.',
-        explanation: 'This proverb emphasizes the importance of guarding one\'s heart, as it is the source of all actions and attitudes in life.'
+        proverb: 'maya',
+        tagalogProverb: '',
+        explanation: ''
     },
     5: {
         image: 'placeholder5.jpg',
