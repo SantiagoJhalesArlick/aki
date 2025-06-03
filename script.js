@@ -58,7 +58,7 @@ const messageContent = {
         explanation: 'This highlights the impact of a child\'s actions on their parents, linking wisdom to happiness and foolishness to sorrow.'
     },
     3: {
-        image: 'us1.jpg',
+        image: 'pixie.jpg',
         proverb: 'Youre a truly special person, Aki. Your kindness, humor, and strong faith shine brightly. Its clear why youre such a good leader. Being around you brings so much joy. Youre a wonderful friend, and I feel lucky to know you',
         tagalogProverb: 'Babe, you are truly a woman to be praised. The Bible says, "Charm is deceptive, and beauty is fleeting; but a woman who fears the Lord is to be praised" Proverbs 31:30, KJV. This verse reminds us that your true beauty comes from your heart and your love for God. Your kindness, your humor, and your strong faith make you shine in a way that lasts forever. Its truly a blessing to see Gods light in you.',
         explanation: 'Iloveyou🥰'
