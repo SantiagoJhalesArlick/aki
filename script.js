@@ -70,10 +70,10 @@ const messageContent = {
         explanation: 'Thats all for today, dont forget to takecare yourself ily -jhales'
     },
     5: {
-        image: 'placeholder5.jpg',
-        proverb: 'Go to the ant, you sluggard; consider its ways and be wise! (Proverbs 6:6)',
-        tagalogProverb: 'Pumunta ka sa langgam, ikaw na tamad; pagmasdan mo ang kanyang mga lakad, at magpakapantas ka!',
-        explanation: 'This verse encourages diligence and hard work by observing the industrious nature of ants, contrasting it with laziness.'
+        image: 'us.jpg',
+        proverb: 'Gusto ko lang sabihin na you’re really a good and beautiful person — inside and out. Sobrang miss na kita. Ang dami nang nangyari, ang daming ups and downs, pero look at you, you survived it all. I’m proud of you. I just really wish you stay consistent in doing good and doing what’s right. Sana rin, pakinggan mo lagi ‘yung mga sinasabi ko — not to control you, but because I care and I only want the best for you.',
+        tagalogProverb: 'Alam mo, kahit minsan mahirap, I’ll still be here cheering for you quietly. Sweet reminder lang: you matter, you are loved, and you deserve all the peace and happiness sa mundo.Stay soft. Stay strong. Don’t ever lose that beautiful heart.',
+        explanation: 'from Aki'
     },
     6: {
         image: 'placeholder6.jpg',
