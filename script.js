@@ -33,18 +33,27 @@ darkModeToggle.addEventListener('click', () => {
 // New JavaScript for Message Section (Daily Wisdom Modal)
 const calendarGrid = document.querySelector('#message .calendar-grid');
 const wisdomModal = document.getElementById('wisdomModal');
-const closeButton = document.querySelector('.close-button');
+const closeButton = wisdomModal.querySelector('.close-button'); // Ensure this targets the wisdom modal's close button
 const modalImage = document.getElementById('modalImage');
 const modalProverb = document.getElementById('modalProverb');
 const modalTagalogProverb = document.getElementById('modalTagalogProverb');
 const modalExplanation = document.getElementById('modalExplanation');
 
-// Get the current day of the month
+// New Modal for Restricted Access
+const restrictedModal = document.getElementById('restrictedModal');
+const closeRestrictedModal = document.getElementById('closeRestrictedModal');
+const okRestrictedModal = document.getElementById('okRestrictedModal');
+const currentDayDisplay = document.getElementById('currentDayDisplay');
+
+// Get the current day of the month and month (0-indexed for month)
 const today = new Date();
-const currentDay = today.getDate(); // e.g., if today is June 2, currentDay will be 2
+const currentDay = today.getDate();
+const currentMonth = today.getMonth() + 1; // getMonth() returns 0-11, so add 1 for actual month number
 
 // --- Data for each day's wisdom ---
 const messageContent = {
+    // You have data for 31 days. I'll just show a snippet for brevity.
+    // Ensure all 31 days have content if you want them to be clickable once per month.
     1: {
         image: 'fia1.jpg',
         proverb: 'The fear of the LORD is the beginning of knowledge: but fools despise wisdom and instruction. (Proverbs 1:7)',
@@ -237,17 +246,28 @@ const messageContent = {
 function generateCalendar() {
     // Clear existing grid
     calendarGrid.innerHTML = '';
-    for (let i = 1; i <= 31; i++) {
+    // Determine the number of days in the current month (for more accurate calendar generation)
+    // For June 2025, it's 30 days. You can make this dynamic if needed.
+    const daysInCurrentMonth = new Date(today.getFullYear(), currentMonth, 0).getDate();
+
+    for (let i = 1; i <= daysInCurrentMonth; i++) { // Loop up to daysInCurrentMonth
         const dayBox = document.createElement('div');
         dayBox.classList.add('day-box');
-        dayBox.textContent = i;
         dayBox.dataset.day = i; // Store the day number
 
-        // Disable days not equal to the current day
-        if (i !== currentDay) {
-            dayBox.classList.add('disabled');
-        }
+        const pTag = document.createElement('p'); // Create a paragraph for the content
 
+        // Check the current date (June 7, 2025)
+        // If it's June 7, 2025, only the 7th will show "Iloveyou"
+        // All other days will just show the number.
+        if (i === currentDay && currentMonth === (today.getMonth() + 1)) { // Only apply "Iloveyou" to the current day
+            pTag.textContent = 'Iloveyou';
+            dayBox.appendChild(pTag); // Append the paragraph
+        } else {
+            dayBox.textContent = i; // For other days, just show the number directly in the div
+            dayBox.classList.add('disabled'); // Disable other days
+        }
+        
         calendarGrid.appendChild(dayBox);
     }
 }
@@ -258,33 +278,41 @@ calendarGrid.addEventListener('click', (event) => {
     if (dayBox) {
         const day = parseInt(dayBox.dataset.day); // Convert to number
 
-        // Check if the clicked day is the current day or if it's disabled
-        if (day !== currentDay) {
-            alert('bawal isa lang perday bleh, ' + currentDay +  ' now 😜   ');
-            return; // Exit the function if not the current day
+        // If the clicked day is disabled, show the restricted modal
+        if (dayBox.classList.contains('disabled')) {
+            currentDayDisplay.textContent = currentDay; // Update the modal with the actual current day
+            restrictedModal.style.display = 'flex';
+            return; // Exit the function as we're showing the restricted modal
         }
 
+        // Only proceed if the day is NOT disabled (i.e., it's the current day)
         const content = messageContent[day];
 
         if (content) {
-            // Update modal content
+            // Update wisdom modal content
             modalImage.src = content.image;
             modalProverb.textContent = content.proverb;
             modalTagalogProverb.textContent = content.tagalogProverb;
             modalExplanation.textContent = content.explanation;
 
-            // Show the modal by changing its display style
+            // Show the wisdom modal
             wisdomModal.style.display = 'flex';
         } else {
+            // This alert should ideally not be reached if days are disabled,
+            // but kept as a fallback if content is missing for the current day.
             alert('No wisdom available for this day yet! Please add content for Day ' + day + '.');
         }
     }
 });
 
-// Close the modal when the close button is clicked
+// Close the wisdom modal when its close button is clicked
 closeButton.addEventListener('click', () => {
     wisdomModal.style.display = 'none';
 });
 
-// Initialize the calendar grid when the page loads
-generateCalendar();
+// Close the restricted modal when its close button is clicked
+closeRestrictedModal.addEventListener('click', () => {
+    restrictedModal.style.display = 'none';
+});
+
+// Close the restricted modal when the OK
