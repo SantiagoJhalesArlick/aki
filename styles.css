@@ -1,0 +1,673 @@
+/* --- YOUR EXISTING CSS (with the new adjustments) --- */
+
+/* Base Variables (for easy theme switching) */
+:root {
+    --primary-purple: #C3A9FF; /* Light Purple */
+    --dark-purple: #8A4EF8;    /* A slightly darker purple for accents */
+    --text-color: #333;
+    --background-color: #f4f7f6;
+    --card-background: #ffffff;
+    --box-shadow-light: 0 2px 10px rgba(0,0,0,0.08);
+    --box-shadow-dark: 0 4x 15px rgba(0,0,0,0.15);
+    --border-color: #eee;
+}
+/* Styles for the second proverb (tagalog) and explanation */
+#wisdomModal #modalTagalogProverb,
+#wisdomModal #modalExplanation {
+
+    text-transform: none;
+    font-weight: normal; /* Keep this bold */
+    font-style: normal;
+    font-size: 1.1em; /* Adjust as needed */
+    color: white;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* Specific styles for the first proverb (proverb) */
+#wisdomModal #modalProverb {
+
+    text-transform: none;
+    font-weight: normal; /* <--- CHANGED TO NORMAL (not bold) for this specific element */
+    font-style: normal;
+    font-size: 1.1em; /* Adjust as needed */
+    color: white;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+/* Dark Mode Variables */
+body.dark-mode {
+    --text-color: #f0f0f0;
+    --background-color: #212121; /* Dark background */
+    --card-background: #2f2f2f;
+    --box-shadow-light: 0 2px 10px rgba(0,0,0,0.3);
+    --box-shadow-dark: 0 4px 15px rgba(0,0,0,0.4);
+    --border-color: #444;
+}
+
+/* Basic Reset & Body Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: var(--card-background);
+    padding: 1rem 0;
+    box-shadow: var(--box-shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--dark-purple);
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
+}
+
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+nav ul li {
+    margin-left: 30px;
+    /* ADDED: For the Message + Heart item, make it a flex container */
+    display: flex; /* Make the list item a flex container */
+    align-items: center; /* Vertically align items */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-family: 'Arial', sans-serif;
+}
+
+nav ul li a:hover {
+    color: var(--primary-purple);
+}
+
+/* Specific styling for the heart icon (assuming it's a direct child of the <li> or <a>) */
+/* If the heart is a separate element next to the 'Message' <a> tag: */
+nav ul li .heart-icon { /* Adjust '.heart-icon' to your actual heart element's class or tag */
+    margin-left: 5px; /* Add space to the left of the heart */
+    /* You might need to adjust font-size if it's an icon font */
+    font-size: 1.1rem; /* Example size */
+    color: var(--primary-purple); /* Or another color if you prefer */
+}
+
+/* If the heart is directly inside the 'Message' <a> tag, you might target it like this: */
+nav ul li a .heart-icon { /* Replace .heart-icon with your actual element's class/tag */
+    margin-left: 5px; /* Space between "Message" text and the heart */
+    /* You might need to adjust font-size if it's an icon font */
+    font-size: 1.1rem; /* Example size */
+    color: var(--primary-purple); /* Or another color if you prefer */
+}
+
+
+/* Minimalist Dark Mode Toggle Switch */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.theme-switch-wrapper .fa-sun,
+.theme-switch-wrapper .fa-moon {
+    display: none;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 28px;
+    position: relative;
+    width: 50px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: var(--border-color);
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.3s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    bottom: 3px;
+    content: "";
+    height: 22px;
+    left: 3px;
+    position: absolute;
+    transition: 0.3s;
+    width: 22px;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+input:checked + .slider {
+    background-color: var(--dark-purple);
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+    background-color: white;
+    border-color: var(--dark-purple);
+}
+
+body.dark-mode .slider {
+    background-color: #555;
+}
+
+body.dark-mode input:checked + .slider {
+    background-color: var(--primary-purple);
+}
+
+body.dark-mode input:checked + .slider:before {
+    background-color: white;
+    border-color: var(--primary-purple);
+}
+
+/* Hero Section */
+#hero {
+    background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+}
+
+#hero .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid rgba(255,255,255,0.8);
+    box-shadow: var(--box-shadow-dark);
+    margin-bottom: 20px;
+}
+
+#hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-family: 'Arial', sans-serif;
+}
+
+#hero p {
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    opacity: 0.9;
+    font-family: 'Arial', sans-serif;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.8rem;
+    margin: 0 15px;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px);
+}
+
+/* General Section Styling */
+section {
+    padding: 80px 20px;
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: var(--card-background);
+    box-shadow: var(--box-shadow-light);
+    margin-bottom: 40px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--dark-purple);
+    position: relative;
+    font-family: 'Arial', sans-serif;
+}
+
+section h2::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-purple);
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* About Section Specifics */
+#about .about-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#about .about-text {
+    flex: 2;
+    min-width: 300px;
+    text-align: justify;
+    font-family: 'Arial', sans-serif;
+}
+
+#about .about-image {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+#about .about-image img {
+    width: 250px;
+    height: 250px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: var(--box-shadow-light);
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+#about .about-image img:hover {
+    transform: scale(1.03);
+}
+
+#about .about-image a {
+    display: block;
+}
+
+
+/* Message Section (New/Replaced Section) */
+#message {
+    text-align: center;
+}
+
+#message .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 15px;
+    max-width: 700px;
+    margin: 50px auto 0;
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow-light);
+}
+
+/* Styling for day boxes - Applying 'Iloveyou' style to ALL paragraphs within */
+#message .day-box {
+    font-family: 'Arial', sans-serif; /* Ensures Arial for the box itself */
+}
+
+#message .day-box p {
+    font-family: 'Arial', sans-serif; /* Redundant but good for specific override */
+    font-style: italic; /* Makes it italic like "Iloveyou" */
+    font-weight: normal; /* Ensures it's not bold */
+    color: var(--dark-purple); /* Using the dark purple from your variables for the text color */
+    /* If you want it exactly white like the modal background, use color: white;
+        But it's in a card-background so dark purple or text-color might be better. */
+    text-decoration: none; /* Ensures no underline */
+    margin: 0; /* Remove default paragraph margins to make spacing tight if needed */
+}
+
+/* Remove the previous rule for skyblue, as it's overridden by the above more general rule */
+/* If you still want the first paragraph to be skyblue, let me know, and we can make a specific rule for that. */
+/* #message .day-box p:first-of-type {
+    color: skyblue;
+} */
+
+
+/* Add this new rule for disabled days */
+#message .day-box.disabled {
+    background-color: #ccc;
+    color: #888;
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+    transform: none;
+}
+
+#message .day-box.disabled:hover {
+    background-color: #ccc;
+    transform: none;
+}
+
+/* For dark mode disabled days */
+body.dark-mode #message .day-box.disabled {
+    background-color: #444;
+    color: #777;
+}
+body.dark-mode #message .day-box:hover {
+    background-color: var(--primary-purple);
+}
+
+
+/* Modal Styles (kept as is, but added font-family to elements with font-size for consistency) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-content {
+    background-color: var(--dark-purple);
+    color: white;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: var(--box-shadow-dark);
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modal-content .modal-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 3px solid rgba(255,255,255,0.8);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.modal-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-family: 'Arial', sans-serif;
+}
+
+.modal-content p {
+    font-size: 1.1rem; /* This is the general paragraph size in the modal */
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.modal-content .proverb {
+    font-style: italic;
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
+}
+
+.modal-content .tagalog-proverb {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* The 'Iloveyou' line itself would likely be a p tag. If it had a specific class,
+    e.g., <p class="iloveyou-text">Iloveyou</p>, you might style it like this:
+    .iloveyou-text {
+        font-family: 'Arial', sans-serif;
+        font-style: italic;
+        font-weight: normal;
+        color: white;
+        text-decoration: none;
+    }
+*/
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-family: 'Arial', sans-serif;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--dark-purple);
+    color: #eee;
+    font-size: 0.9rem;
+    margin-top: 40px;
+    font-family: 'Arial', sans-serif;
+}
+
+footer .footer-links a {
+    color: #eee;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+    font-family: 'Arial', sans-serif;
+}
+
+footer .footer-links a:hover {
+    color: var(--primary-purple);
+}
+
+/* --- START: Responsive Adjustments for Navigation (Mobile First) --- */
+@media (max-width: 768px) {
+    nav .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px;
+    }
+
+    nav .logo {
+        text-align: left;
+        width: auto;
+        margin-bottom: 0;
+        font-size: 1.5rem;
+        font-family: 'Arial', sans-serif;
+    }
+
+    nav ul {
+        margin-top: 0;
+        flex-wrap: nowrap;
+        justify-content: center;
+        flex-grow: 1;
+        margin-right: 15px;
+        margin-left: auto;
+    }
+
+    nav ul li {
+        margin-left: 20px;
+        margin-bottom: 0;
+    }
+
+    .theme-switch-wrapper {
+        margin-left: 0;
+        flex-shrink: 0;
+    }
+
+    /* Other existing responsive adjustments */
+    #hero h1 {
+        font-size: 2.5rem;
+        font-family: 'Arial', sans-serif;
+    }
+    #hero p {
+        font-size: 1rem;
+        font-family: 'Arial', sans-serif;
+    }
+    section {
+        padding: 60px 15px;
+    }
+    section h2 {
+        font-size: 2rem;
+        font-family: 'Arial', sans-serif;
+    }
+    #about .about-content {
+        flex-direction: column;
+    }
+
+    /* About image on smaller screens */
+    #about .about-image {
+        min-width: unset;
+        margin-top: 20px;
+    }
+    #about .about-image img {
+        width: 180px;
+        height: 180px;
+    }
+
+    #message .calendar-grid {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+        gap: 10px;
+    }
+    #message .day-box {
+        font-size: 1.2rem;
+        padding: 15px 5px;
+        font-family: 'Arial', sans-serif;
+    }
+    #message .day-box p { /* Ensure mobile messages also get the style */
+        font-style: italic;
+        font-weight: normal;
+        color: var(--dark-purple);
+        text-decoration: none;
+    }
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+        font-family: 'Arial', sans-serif;
+    }
+    .modal-content .modal-image {
+        width: 100px;
+        height: 100px;
+    }
+}
+/* --- END: Responsive Adjustments for Navigation --- */
+
+/* Adjustments for larger screens (if you want a different look when not a carousel) */
+@media (min-width: 769px) {
+    /* Reset mobile specific nav styles for desktop */
+    nav .logo {
+        width: auto;
+        margin-bottom: 0;
+        text-align: left;
+    }
+    nav ul {
+        width: auto;
+        justify-content: flex-start;
+        flex-grow: 0;
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .theme-switch-wrapper {
+        margin-left: 30px;
+    }
+
+    /* Keep the image grid or carousel for desktop */
+    /* If you want it to be a grid on desktop, uncomment and adjust the following: */
+    /*
+    .image-carousel-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 10px;
+        background-color: var(--background-color);
+        border-radius: 8px;
+        box-shadow: var(--box-shadow-light);
+        overflow: visible;
+        scroll-snap-type: none;
+    }
+
+    .image-carousel-track {
+        display: contents;
+        overflow-x: visible;
+        scroll-snap-type: none;
+        padding-bottom: 0;
+    }
+
+    .image-carousel-track img {
+        width: 100%;
+        height: 150px;
+        margin: 0;
+        scroll-snap-align: none;
+    }
+
+    .image-carousel-track img:first-child,
+    .image-carousel-track img:last-child {
+        margin: 0;
+    }
+    */
+}

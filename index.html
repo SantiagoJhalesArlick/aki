@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aki's Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container">
+            <div class="logo">Aki</div>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#message">Message</a></li>
+                
+                <li class="theme-switch-wrapper">
+                    <span id="darkModeToggle" class="purple-heart-toggle">💜</span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <img src="her.jpg" alt="Sofia's Profile Picture" class="profile-img">
+        <h1>Sofia</h1>
+        <p>Tappy Creator | Mayor | Web Designer </p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/sofia.291021" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/_pizxcya/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/yoshidnd" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Aki</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Sofia Lorraine Signo, the mayor of our CSS (or IT) department class, immediately caught my eye. I was so attracted to her; she's not just sexy, cute, and pretty, but also has a great sense of humor and a promising academic future.</p>
+                <br>
+                <p>What truly sealed it for me is that she's also a Christian and sings Christian songs. When I hear her sing "Sukdulang Biyaya," "All For You," "Majesty," and others, I'm completely smitten. And whenever she stands up for me, I can't help but feel a surge of pride and a smirk just lights up my face.</p>
+            </div>
+            <div class="about-image">
+                <img src="us2.jpg" alt="Sofia working">
+            </div>
+        </div>
+    </section>
+
+    <section id="message">
+        <h2>Special Message</h2>
+        <p>Written by: Jhales</p>
+        <div class="calendar-grid">
+        </div>
+    </section>
+
+    <div id="wisdomModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <img id="modalImage" src="" alt="Daily Wisdom Image" class="modal-image">
+            <p class="proverb" id="modalProverb"></p>
+            <p class="tagalog-proverb" id="modalTagalogProverb"></p>
+            <p id="modalExplanation"></p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Created by Aki. Only you reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
