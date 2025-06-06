@@ -1,16 +1,16 @@
 // Dark mode toggle script
-const darkModeToggle = document.getElementById('darkModeToggle'); // This now correctly targets your heart emoji span
+const darkModeToggle = document.getElementById('darkModeToggle');
 const body = document.body;
 
 // Function to set the theme based on localStorage or default
 function setTheme() {
     const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'dark-mode') { // Use 'dark-mode' to match your provided script
+    if (currentTheme === 'dark-mode') {
         body.classList.add('dark-mode');
         darkModeToggle.textContent = '💜'; // Dark mode: purple heart
     } else {
         body.classList.remove('dark-mode');
-        darkModeToggle.textContent = '🤍'; // Light mode: white heart (or any other contrasting emoji)
+        darkModeToggle.textContent = '🤍'; // Light mode: white heart
     }
 }
 
@@ -20,40 +20,43 @@ setTheme();
 darkModeToggle.addEventListener('click', () => {
     if (body.classList.contains('dark-mode')) {
         body.classList.remove('dark-mode');
-        localStorage.setItem('theme', 'light-mode'); // Store 'light-mode'
+        localStorage.setItem('theme', 'light-mode');
         darkModeToggle.textContent = '🤍'; // Switch to light: white heart
     } else {
         body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark-mode'); // Store 'dark-mode'
+        localStorage.setItem('theme', 'dark-mode');
         darkModeToggle.textContent = '💜'; // Switch to dark: purple heart
     }
 });
 
 
-// New JavaScript for Message Section (Daily Wisdom Modal)
+// JavaScript for Message Section (Daily Wisdom Modal)
 const calendarGrid = document.querySelector('#message .calendar-grid');
 const wisdomModal = document.getElementById('wisdomModal');
-const closeButton = wisdomModal.querySelector('.close-button'); // Ensure this targets the wisdom modal's close button
+
+// CORRECTED: Select the close button SPECIFICALLY for the wisdomModal
+const closeWisdomModalButton = wisdomModal.querySelector('.close-button');
 const modalImage = document.getElementById('modalImage');
 const modalProverb = document.getElementById('modalProverb');
 const modalTagalogProverb = document.getElementById('modalTagalogProverb');
 const modalExplanation = document.getElementById('modalExplanation');
 
-// New Modal for Restricted Access
+// Elements for the restricted access modal
 const restrictedModal = document.getElementById('restrictedModal');
 const closeRestrictedModal = document.getElementById('closeRestrictedModal');
 const okRestrictedModal = document.getElementById('okRestrictedModal');
 const currentDayDisplay = document.getElementById('currentDayDisplay');
 
-// Get the current day of the month and month (0-indexed for month)
+// Get the current day of the month
 const today = new Date();
-const currentDay = today.getDate();
-const currentMonth = today.getMonth() + 1; // getMonth() returns 0-11, so add 1 for actual month number
+const currentDay = today.getDate(); // e.g., if today is June 2, currentDay will be 2
 
-// --- Data for each day's wisdom ---
+// Get the full name of the current day of the week
+const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const currentDayOfWeek = daysOfWeek[today.getDay()];
+
+// --- Data for each day's wisdom (your existing content) ---
 const messageContent = {
-    // You have data for 31 days. I'll just show a snippet for brevity.
-    // Ensure all 31 days have content if you want them to be clickable once per month.
     1: {
         image: 'fia1.jpg',
         proverb: 'The fear of the LORD is the beginning of knowledge: but fools despise wisdom and instruction. (Proverbs 1:7)',
@@ -97,7 +100,7 @@ const messageContent = {
         explanation: 'jeyls'
     },
     8: {
-        image: 'her1.jpg',
+        image: 'placeholder8.jpg',
         proverb: 'Pride goes before destruction, and a haughty spirit before a fall. (Proverbs 16:18)',
         tagalogProverb: 'Ang kapalaluan ay nauuna sa pagkapuksa, at ang mapagmataas na espiritu ay nauuna sa pagbagsak.',
         explanation: 'This warns against the dangers of arrogance and pride, indicating that they often lead to downfall and ruin.'
@@ -246,28 +249,17 @@ const messageContent = {
 function generateCalendar() {
     // Clear existing grid
     calendarGrid.innerHTML = '';
-    // Determine the number of days in the current month (for more accurate calendar generation)
-    // For June 2025, it's 30 days. You can make this dynamic if needed.
-    const daysInCurrentMonth = new Date(today.getFullYear(), currentMonth, 0).getDate();
-
-    for (let i = 1; i <= daysInCurrentMonth; i++) { // Loop up to daysInCurrentMonth
+    for (let i = 1; i <= 31; i++) {
         const dayBox = document.createElement('div');
         dayBox.classList.add('day-box');
+        dayBox.textContent = i;
         dayBox.dataset.day = i; // Store the day number
 
-        const pTag = document.createElement('p'); // Create a paragraph for the content
-
-        // Check the current date (June 7, 2025)
-        // If it's June 7, 2025, only the 7th will show "Iloveyou"
-        // All other days will just show the number.
-        if (i === currentDay && currentMonth === (today.getMonth() + 1)) { // Only apply "Iloveyou" to the current day
-            pTag.textContent = 'Iloveyou';
-            dayBox.appendChild(pTag); // Append the paragraph
-        } else {
-            dayBox.textContent = i; // For other days, just show the number directly in the div
-            dayBox.classList.add('disabled'); // Disable other days
+        // Disable days not equal to the current day
+        if (i !== currentDay) {
+            dayBox.classList.add('disabled');
         }
-        
+
         calendarGrid.appendChild(dayBox);
     }
 }
@@ -278,14 +270,15 @@ calendarGrid.addEventListener('click', (event) => {
     if (dayBox) {
         const day = parseInt(dayBox.dataset.day); // Convert to number
 
-        // If the clicked day is disabled, show the restricted modal
-        if (dayBox.classList.contains('disabled')) {
-            currentDayDisplay.textContent = currentDay; // Update the modal with the actual current day
-            restrictedModal.style.display = 'flex';
-            return; // Exit the function as we're showing the restricted modal
+        // Check if the clicked day is the current day or if it's disabled
+        if (day !== currentDay) {
+            // Display the restricted modal instead of an alert
+            currentDayDisplay.textContent = currentDayOfWeek + ' ' + currentDay; // Display current day of week and number
+            restrictedModal.style.display = 'flex'; // Show the custom modal
+            return; // Exit the function if not the current day
         }
 
-        // Only proceed if the day is NOT disabled (i.e., it's the current day)
+        // If it IS the current day, proceed to show the wisdom modal
         const content = messageContent[day];
 
         if (content) {
@@ -298,15 +291,13 @@ calendarGrid.addEventListener('click', (event) => {
             // Show the wisdom modal
             wisdomModal.style.display = 'flex';
         } else {
-            // This alert should ideally not be reached if days are disabled,
-            // but kept as a fallback if content is missing for the current day.
             alert('No wisdom available for this day yet! Please add content for Day ' + day + '.');
         }
     }
 });
 
 // Close the wisdom modal when its close button is clicked
-closeButton.addEventListener('click', () => {
+closeWisdomModalButton.addEventListener('click', () => {
     wisdomModal.style.display = 'none';
 });
 
@@ -315,4 +306,10 @@ closeRestrictedModal.addEventListener('click', () => {
     restrictedModal.style.display = 'none';
 });
 
-// Close the restricted modal when the OK
+// Close the restricted modal when the "OK" button is clicked
+okRestrictedModal.addEventListener('click', () => {
+    restrictedModal.style.display = 'none';
+});
+
+// Initialize the calendar grid when the page loads
+generateCalendar();
