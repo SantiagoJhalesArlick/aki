@@ -88,7 +88,7 @@ const messageContent = {
         explanation: 'jeyls'
     },
     8: {
-        image: 'placeholder8.jpg',
+        image: 'her1.jpg',
         proverb: 'Pride goes before destruction, and a haughty spirit before a fall. (Proverbs 16:18)',
         tagalogProverb: 'Ang kapalaluan ay nauuna sa pagkapuksa, at ang mapagmataas na espiritu ay nauuna sa pagbagsak.',
         explanation: 'This warns against the dangers of arrogance and pride, indicating that they often lead to downfall and ruin.'
