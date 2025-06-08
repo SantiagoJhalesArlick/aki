@@ -101,27 +101,27 @@ const messageContent = {
     },
     8: {
         image: 'placeholder8.jpg',
-        proverb: 'Pride goes before destruction, and a haughty spirit before a fall. (Proverbs 16:18)',
-        tagalogProverb: 'Ang kapalaluan ay nauuna sa pagkapuksa, at ang mapagmataas na espiritu ay nauuna sa pagbagsak.',
-        explanation: 'This warns against the dangers of arrogance and pride, indicating that they often lead to downfall and ruin.'
+        proverb: '#',
+        tagalogProverb: '#',
+        explanation: '#'
     },
     9: {
         image: 'placeholder9.jpg',
-        proverb: 'A friend loves at all times, and a brother is born for adversity. (Proverbs 17:17)',
-        tagalogProverb: 'Ang kaibigan ay umiibig sa lahat ng panahon, at ang kapatid ay ipinanganak para sa kasawian.',
-        explanation: 'This proverb describes the enduring nature of true friendship and the supportive role of family during difficult times.'
+        proverb: '#',
+        tagalogProverb: '#',
+        explanation: '#'
     },
     10: {
         image: 'placeholder10.jpg',
-        proverb: 'The name of the Lord is a strong tower; the righteous run to it and are safe. (Proverbs 18:10)',
-        tagalogProverb: 'Ang pangalan ng Panginoon ay matibay na tore; ang matuwid ay tumatakbo rito at ligtas.',
-        explanation: 'This illustrates God as a refuge and source of security for those who trust in Him, offering protection from life\'s challenges.'
+        proverb: '#',
+        tagalogProverb: '#',
+        explanation: '#'
     },
     11: {
         image: 'placeholder11.jpg',
-        proverb: 'He who finds a wife finds a good thing and obtains favor from the Lord. (Proverbs 18:22)',
-        tagalogProverb: 'Ang nakasumpong ng asawa ay nakasumpong ng mabuting bagay at nagtatamo ng biyaya mula sa Panginoon.',
-        explanation: 'This proverb speaks to the blessing and divine favor associated with finding a good spouse.'
+        proverb: '#',
+        tagalogProverb: '#',
+        explanation: '#'
     },
     12: {
         image: 'placeholder12.jpg',
