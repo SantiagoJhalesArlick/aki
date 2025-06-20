@@ -173,9 +173,9 @@ const messageContent = {
     },
     20: {
         image: 'placeholder20.jpg',
-        proverb: 'Whoever conceals their sins does not prosper, but the one who confesses and renounces them finds mercy. (Proverbs 28:13)',
-        tagalogProverb: 'Ang nagtatago ng kanyang mga kasalanan ay hindi magtatagumpay, ngunit ang nagtatapat at tumatalikod sa mga ito ay makasusumpong ng awa.',
-        explanation: 'This proverb highlights the importance of honesty and repentance for finding forgiveness and true success.'
+        proverb: 'No message',
+        tagalogProverb: '',
+        explanation: ''
     },
     21: {
         image: 'placeholder21.jpg',
