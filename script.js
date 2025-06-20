@@ -179,27 +179,26 @@ const messageContent = {
     },
     21: {
         image: 'placeholder21.jpg',
-        proverb: 'Where there is no vision, the people perish: but he that keeps the law, happy is he. (Proverbs 29:18)',
-        tagalogProverb: 'Kung saan walang pangitain, ang bayan ay napapahamak: ngunit ang sumusunod sa kautusan, maligaya siya.',
-        explanation: 'This emphasizes the necessity of clear moral and spiritual guidance for a society to thrive, linking adherence to divine law with happiness.'
+        proverb: 'No message again',
+        tagalogProverb: '',
     },
     22: {
         image: 'placeholder22.jpg',
-        proverb: 'Do not answer a fool according to his folly, lest you also be like him. (Proverbs 26:4)',
-        tagalogProverb: 'Huwag mong sagutin ang mangmang ayon sa kanyang kahangalan, baka ikaw man ay maging katulad niya.',
-        explanation: 'This advises against engaging with foolish arguments in a way that lowers oneself to the fool\'s level.'
+        proverb: 'No message',
+        tagalogProverb: '.',
+        explanation: ''
     },
     23: {
         image: 'placeholder23.jpg',
-        proverb: 'Better a dry crust with peace and quiet than a house full of feasting, with strife. (Proverbs 17:1)',
-        tagalogProverb: 'Mas mabuti ang tuyong tinapay na may kapayapaan at katahimikan kaysa sa bahay na puno ng piging, na may pagtatalo.',
-        explanation: 'This proverb values peace and tranquility over material abundance when accompanied by conflict.'
+        proverb: 'No message',
+        tagalogProverb: '',
+        explanation: ''
     },
     24: {
         image: 'placeholder24.jpg',
-        proverb: 'A good name is more desirable than great riches; to be esteemed is better than silver or gold. (Proverbs 22:1)',
-        tagalogProverb: 'Ang mabuting pangalan ay mas kanais-nais kaysa sa malaking kayamanan; ang maging iginagalang ay mas mabuti kaysa sa pilak o ginto.',
-        explanation: 'This emphasizes the lasting value of a good reputation and respect over material wealth.'
+        proverb: 'HAHAHAHAHAHAHAH lala mo',
+        tagalogProverb: '',
+        explanation: ''
     },
     25: {
         image: 'placeholder25.jpg',
